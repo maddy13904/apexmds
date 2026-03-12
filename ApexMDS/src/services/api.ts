@@ -12,7 +12,7 @@ export const setUnauthorizedHandler = (handler: () => void) => {
 };
 
 const api = axios.create({
-  baseURL: "http://10.73.65.228:5000/api/v1",
+  baseURL: "http://10.73.65.134:5000/api/v1",
 });
 
 // 🔐 Attach JWT to every request

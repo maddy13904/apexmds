@@ -16,6 +16,7 @@ export default function Sidebar() {
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "AI Tutor", path: "/ai-tutor", icon: Brain },
     { name: "Analytics", path: "/analytics", icon: BarChart3 },
+    { name: "Daily Quiz", path: "/daily-quiz", icon: GraduationCap},
     { name: "Mock Test", path: "/mock-tests", icon: GraduationCap },
     { name: "Previous Papers", path: "/previous-papers", icon: FileText },
     { name: "Ebooks", path: "/ebooks", icon: BookOpen },

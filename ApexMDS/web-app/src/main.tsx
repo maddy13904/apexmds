@@ -4,6 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { AuthProvider } from "./auth/AuthContext";
 import './index.css'
+import { startReminderEngine } from "./utils/reminderEngine";
+
+startReminderEngine();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

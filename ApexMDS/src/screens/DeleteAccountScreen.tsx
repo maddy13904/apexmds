@@ -15,7 +15,7 @@ import * as FileSystem from "expo-file-system/legacy";
 import { useAuth } from "../context/AuthContext";
 
 
-const BASE_URL = "http://10.73.65.228:5000/api/v1";
+const BASE_URL = "http://10.73.65.134:5000/api/v1";
 
 export function DeleteAccountScreen({ navigation }: any) {
   const [step, setStep] = useState<"warning" | "confirm" | "password">("warning");

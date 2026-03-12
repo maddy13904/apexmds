@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { useNavigate } from "react-router-dom";
 import API from "../../api/api";
+import { reloadReminders } from "../../utils/reminderEngine";
 
 interface Reminder {
   id: number;
@@ -14,6 +15,7 @@ interface Reminder {
 export default function ReminderTimes() {
 
   const navigate = useNavigate();
+
   const [reminders, setReminders] = useState<Reminder[]>([]);
 
   useEffect(() => {
@@ -21,17 +23,23 @@ export default function ReminderTimes() {
   }, []);
 
   async function loadReminders() {
+
     try {
 
       const res = await API.get("/notification-settings");
 
-      setReminders(res.data.reminderTimes || []);
+      const reminderData = res.data.reminderTimes || [];
+
+      setReminders(reminderData);
+
+      console.log("Loaded reminders:", reminderData);
 
     } catch (err) {
 
-      console.log("Failed to load reminders");
+      console.log("Failed to load reminders", err);
 
     }
+
   }
 
   async function updateReminders(updated: Reminder[]) {
@@ -44,9 +52,12 @@ export default function ReminderTimes() {
 
       setReminders(updated);
 
+      /* refresh reminder engine */
+      reloadReminders();
+
     } catch (err) {
 
-      console.log("Failed to update reminders");
+      console.log("Failed to update reminders", err);
 
     }
 
@@ -106,6 +117,7 @@ export default function ReminderTimes() {
                   })
                 }
               >
+
                 <p className="font-semibold text-lg">
                   {reminder.time}
                 </p>
@@ -114,7 +126,6 @@ export default function ReminderTimes() {
                   {reminder.label}
                 </p>
 
-                {/* Show days */}
                 <p className="text-xs text-slate-400 mt-1">
                   {reminder.days.join(", ")}
                 </p>
@@ -144,6 +155,7 @@ export default function ReminderTimes() {
               </div>
 
             </div>
+
           ))}
 
         </div>

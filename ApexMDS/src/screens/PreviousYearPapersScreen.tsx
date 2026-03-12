@@ -16,7 +16,7 @@ interface Paper {
   pdfUrl: string;
 }
 
-const BASE_URL = "http://10.73.65.228:5000/api/v1";
+const BASE_URL = "http://10.73.65.134:5000/api/v1";
 
 export function PreviousYearPapersScreen({ navigation }: any) {
 

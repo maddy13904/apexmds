@@ -1,22 +1,61 @@
 import { showNotification } from "./Notifications";
+import API from "../api/api";
 
 const weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
-export function startReminderEngine() {
+let reminders: any[] = [];
 
+const triggered = new Set<number>();
+let lastMinute = -1;
+
+/* load reminders from backend */
+async function loadReminders() {
+
+  try {
+
+    const res = await API.get("/notification-settings");
+
+    reminders = res.data.reminderTimes || [];
+
+    console.log("Reminders loaded:", reminders);
+
+  } catch (err) {
+
+    console.log("Failed to load reminders", err);
+
+  }
+
+}
+
+export async function reloadReminders() {
+  await loadReminders();
+}
+
+export async function startReminderEngine() {
+
+  await loadReminders();
+
+  /* reload reminders every 60 seconds */
+  setInterval(loadReminders, 60000);
+
+  /* check reminders every 5 seconds */
   setInterval(() => {
-
-    const saved = localStorage.getItem("reminders");
-    if (!saved) return;
-
-    const reminders = JSON.parse(saved);
 
     const now = new Date();
 
-    const currentDay = weekDays[now.getDay()];
+    console.log("Checking reminders at:", now.toLocaleTimeString());
 
-    const currentTime =
-      now.toTimeString().slice(0,5); // HH:MM
+    if (!reminders.length) return;
+
+    const currentDay = weekDays[now.getDay()];
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    /* reset duplicate tracker each minute */
+    if (currentMinute !== lastMinute) {
+      triggered.clear();
+      lastMinute = currentMinute;
+    }
 
     reminders.forEach((reminder: any) => {
 
@@ -24,7 +63,18 @@ export function startReminderEngine() {
 
       if (!reminder.days.includes(currentDay)) return;
 
-      if (reminder.time === currentTime) {
+      const [h, m] = reminder.time.split(":");
+
+      if (
+        currentHour === parseInt(h) &&
+        currentMinute === parseInt(m)
+      ) {
+
+        if (triggered.has(reminder.id)) return;
+
+        triggered.add(reminder.id);
+
+        console.log("Triggering reminder:", reminder);
 
         showNotification(
           "📚 Study Reminder",
@@ -35,5 +85,6 @@ export function startReminderEngine() {
 
     });
 
-  }, 60000); // every minute
+  }, 5000);
+
 }

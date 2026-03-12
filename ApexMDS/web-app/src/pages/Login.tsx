@@ -51,6 +51,27 @@ export default function Login() {
     <div className="min-h-screen bg-slate-50 flex flex-col px-6 py-12">
 
       <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full">
+        <img
+        src="https://simatscgpa.netlify.app/logo2.png"
+        alt="left logo"
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "20px",
+          width: "60px"
+        }}
+      />
+
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQzSASJ8CW7h0pmb79FrMdRMp73kQ96SnFPg&s"
+        alt="right logo"
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          width: "60px"
+        }}
+      />
 
         {/* Logo / Header */}
         <div className="text-center mb-10">
@@ -142,6 +163,8 @@ export default function Login() {
           </p>
 
         </div>
+
+        <p className="text-slate-500" style={{position:"relative", color:"#8398b1ff",top:50, textAlign:"center"}}>Powered by SIMATS Engineering</p>
 
       </div>
 

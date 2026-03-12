@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+  Image,
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
@@ -82,6 +83,17 @@ login(); // 🔥 THIS updates global auth state
 
         <View style={styles.content}>
 
+        <Image
+        source={{ uri: 'https://simatscgpa.netlify.app/logo2.png' }}
+        style={styles.logoLeft}
+      />
+
+      {/* Right Logo */}
+      <Image
+        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQzSASJ8CW7h0pmb79FrMdRMp73kQ96SnFPg&s' }}
+        style={styles.logoRight}
+      />
+
           {/* Logo Section */}
           <View style={styles.logoBox}>
             <View style={styles.logoIcon}>
@@ -154,6 +166,8 @@ login(); // 🔥 THIS updates global auth state
               <Text style={styles.registerLink}> Register</Text>
             </TouchableOpacity>
           </View>
+
+          <Text style={styles.power}>Powered by SIMATS Engineering</Text>
 
         </View>
 
@@ -273,5 +287,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#1E3A8A",
     fontWeight: "bold"
+  },
+  logoLeft: {
+    position: 'absolute',
+    bottom:550,
+    left: 20,
+    width: 60,
+    height: 60
+  },
+
+  logoRight: {
+    position: 'absolute',
+    bottom: 550,
+    right: 20,
+    width: 60,
+    height: 60
+  },
+  power: {
+    textAlign: "center",
+    position: "sticky",
+    top:150,
+    color: "#8398b1ff"
   }
 });

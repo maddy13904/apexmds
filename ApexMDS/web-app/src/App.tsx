@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { startReminderEngine } from "./utils/reminderEngine";
-import { requestNotificationPermission } from "./utils/Notifications";
+//import { requestNotificationPermission } from "./utils/Notifications";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -38,12 +38,8 @@ import Register from "./pages/Register";
 
 export default function App() {
   useEffect(() => {
-
-  requestNotificationPermission();
-
-  startReminderEngine();
-
-}, []);
+    startReminderEngine();
+  }, []);
   return (
     <AuthProvider>
         <Routes>
