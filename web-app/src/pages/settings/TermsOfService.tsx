@@ -138,22 +138,7 @@ export default function TermsOfService() {
 
               <p>
                 Email:{" "}
-                <a
-                  href="mailto:support@apexmds.com"
-                  className="text-blue-600 hover:underline"
-                >
-                  support@apexmds.com
-                </a>
-              </p>
-
-              <p>
-                Phone:{" "}
-                <a
-                  href="tel:+9118001234567"
-                  className="text-blue-600 hover:underline"
-                >
-                  +91 1800-123-4567
-                </a>
+                  SIMATS Engineering
               </p>
 
             </div>

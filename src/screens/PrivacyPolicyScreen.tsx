@@ -1,11 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 export function PrivacyPolicyScreen({ navigation }: any) {
   return (
@@ -84,8 +84,7 @@ export function PrivacyPolicyScreen({ navigation }: any) {
           <Text style={styles.sectionTitle}>6. Contact Us</Text>
           <View style={styles.contactBox}>
             <Text style={styles.paragraph}>ApexMDS Privacy Team</Text>
-            <Text style={styles.paragraph}>Email: privacy@apexmds.com</Text>
-            <Text style={styles.paragraph}>Phone: +91 1800-123-4567</Text>
+            <Text style={styles.paragraph}>SIMATS Engineering</Text>
           </View>
 
         </View>

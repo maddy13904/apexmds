@@ -73,13 +73,8 @@ export default function PrivacyPolicy() {
             />
 
             <p>
-              Email:{" "}
-              <a
-                href="mailto:support@apexmds.com"
-                className="text-blue-600 hover:underline"
-              >
-                support@apexmds.com
-              </a>
+              Contact:{" "}
+                SIMATS Engineering
             </p>
 
           </div>

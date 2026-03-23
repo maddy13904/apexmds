@@ -1,11 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 export function TermsOfServiceScreen({ navigation }: any) {
   return (
@@ -127,8 +127,7 @@ export function TermsOfServiceScreen({ navigation }: any) {
             title="10. Contact Information"
             text={[
               "ApexMDS Support Team",
-              "Email: support@apexmds.com",
-              "Phone: +91 1800-123-4567"
+              "SIMATS Engineering"
             ]}
           />
 
