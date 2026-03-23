@@ -1,38 +1,50 @@
-# ApexMDS
+# Welcome to your Expo app 👋
 
-ApexMDS is an AI-powered learning platform designed to help dental students prepare for the NEET MDS examination.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Features
-- AI Tutor
-- Mock Tests
-- Previous Year Papers
-- Performance Analytics
-- Adaptive Practice
-- Study Plans
+## Get started
 
-## Tech Stack
-Frontend: React Native  
-Backend: Node.js + Express  
-Database: MongoDB  
-Web Dashboard: React + Vite  
+1. Install dependencies
 
-## Project Structure
-backend/ → Node API  
-web-app/ → Admin dashboard  
-mobile-app/ → React Native application
+   ```bash
+   npm install
+   ```
 
-## Setup
+2. Start the app
 
-### Backend
-cd backend
-npm install
-npm run dev
+   ```bash
+   npx expo start
+   ```
 
-### Mobile App
-npm install
-npm start
+In the output, you'll find options to open the app in a
 
-### Web App
-cd web-app
-npm install
-npm run dev
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
+npm run reset-project
+```
+
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
