@@ -15,7 +15,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 
 
-const BASE_URL = "http://10.148.127.170:5000/api/v1";
+const BASE_URL = "http://180.235.121.253:8078/api/v1";
 
 export function DeleteAccountScreen({ navigation }: any) {
   const [step, setStep] = useState<"warning" | "confirm" | "password">("warning");

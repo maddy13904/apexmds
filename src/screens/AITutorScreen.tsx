@@ -119,13 +119,16 @@ const currentMessageIdRef = useRef<number | null>(null);
   // AUTO PROMPT SUPPORT
   // =============================
   useFocusEffect(
-    useCallback(() => {
-      if (prompt && !hasAutoRun.current) {
-        hasAutoRun.current = true;
+  useCallback(() => {
+    if (prompt && !hasAutoRun.current) {
+      hasAutoRun.current = true;
+
+      setTimeout(() => {
         sendMessage(prompt);
-      }
-    }, [prompt])
-  );
+      }, 300); // 🔥 important
+    }
+  }, [prompt])
+);
 
   // =============================
   // FORMAT PLAN
