@@ -13,6 +13,10 @@ export const setUnauthorizedHandler = (handler: () => void) => {
 
 const api = axios.create({
   baseURL: "http://180.235.121.253:8078/api/v1",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  timeout: 10000
 });
 
 // 🔐 Attach JWT to every request
@@ -20,9 +24,9 @@ api.interceptors.request.use(async (config) => {
   let token: string | null = null;
 
   if (Platform.OS === "web") {
-    token = localStorage.getItem("accessToken");
+    token = localStorage.getItem("token");
   } else {
-    token = await AsyncStorage.getItem("accessToken");
+    token = await AsyncStorage.getItem("yoken");
   }
 
   if (token) {

@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 import {
-  View,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  ActivityIndicator,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform
+  View
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { useAuth } from "../context/AuthContext";
 import { loginUser } from "../services/auth.service";
 import { saveToken } from "../utils/authStorage";
 import { savetoken } from "../utils/authToken";
-import axios from "axios";
-import { useAuth } from "../context/AuthContext";
 
 
 export function LoginScreen({ navigation }: any) {
@@ -61,10 +60,17 @@ const handleLogin = async () => {
     await savetoken(res.data.token);
 login(); // 🔥 THIS updates global auth state
   } catch (err: any) {
-    console.log("LOGIN ERROR FULL:", err);
-    console.log("LOGIN ERROR RESPONSE:", err.response?.data);
-    alert(err.response?.data?.message || "Login failed");
-  } finally {
+  console.log("FULL ERROR:", err);
+  console.log("ERROR MESSAGE:", err.message);
+  console.log("ERROR RESPONSE:", err.response);
+  console.log("ERROR DATA:", err.response?.data);
+
+  alert(
+    err.response?.data?.message ||
+    err.message ||
+    "Unknown error"
+  );
+} finally {
     setIsLoading(false);
   }
 };
